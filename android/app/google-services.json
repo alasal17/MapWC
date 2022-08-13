@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "861496021495",
+    "project_id": "mapwc-353700",
+    "storage_bucket": "mapwc-353700.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861496021495:android:2344cddebbc162fd8f5ef2",
+        "android_client_info": {
+          "package_name": "com.flutterflow.mapwc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "861496021495-n4fdt7phf44b6de6bhkhgva6bl8cam4s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.flutterflow.mapwc",
+            "certificate_hash": "31a6e767ccf850d5afe5da9331b43a8c7b1e7b19"
+          }
+        },
+        {
+          "client_id": "861496021495-vls3qfq0osu4gohcajsh282ruuqaf44i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.flutterflow.mapwc",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "861496021495-qa7kjpbr6au3115asent77mvj35jicul.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtBdAC2rf8a4ZtaICiM1u_BiCoYMYOQUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "861496021495-qa7kjpbr6au3115asent77mvj35jicul.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "861496021495-bkqmece9e944emv31mrtpj80cvb11sap.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flutterflow.mapwc"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
