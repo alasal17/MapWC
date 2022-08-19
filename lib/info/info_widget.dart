@@ -804,8 +804,7 @@ class _InfoWidgetState extends State<InfoWidget> with TickerProviderStateMixin {
                                         (index) => random_data.randomInteger(
                                             0, 24)).map((e) => e).toList(),
                                     settings: LineChartBarData(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
+                                      color: Color(0x00000000),
                                       barWidth: 1,
                                       isCurved: true,
                                       preventCurveOverShooting: true,
@@ -817,24 +816,11 @@ class _InfoWidgetState extends State<InfoWidget> with TickerProviderStateMixin {
                                     ),
                                   )
                                 ],
-                                enableTooltip: true,
-                                tooltipBackgroundColor:
-                                    FlutterFlowTheme.of(context).primaryText,
-                                backgroundColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                axisBounds: AxisBounds(
-                                  maxX: 24,
-                                  maxY: 100,
+                                chartStylingInfo: ChartStylingInfo(
+                                  showBorder: false,
                                 ),
-                                xAxisLabelInfo: AxisLabelInfo(
-                                  title: 'Time',
-                                  titleTextStyle:
-                                      FlutterFlowTheme.of(context).bodyText1,
-                                  showLabels: true,
-                                  labelTextStyle:
-                                      FlutterFlowTheme.of(context).bodyText2,
-                                  labelInterval: 10,
-                                ),
+                                axisBounds: AxisBounds(),
+                                xAxisLabelInfo: AxisLabelInfo(),
                                 yAxisLabelInfo: AxisLabelInfo(),
                               ),
                             ),

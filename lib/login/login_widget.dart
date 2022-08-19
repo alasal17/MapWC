@@ -26,7 +26,7 @@ class _LoginWidgetState extends State<LoginWidget> {
   @override
   void initState() {
     super.initState();
-    emailAddressController = TextEditingController(text: 'Email');
+    emailAddressController = TextEditingController();
     passwordController = TextEditingController();
     passwordVisibility = false;
   }
@@ -43,7 +43,17 @@ class _LoginWidgetState extends State<LoginWidget> {
             Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 1,
-              decoration: BoxDecoration(),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    FlutterFlowTheme.of(context).btnHover,
+                    FlutterFlowTheme.of(context).primaryBtnText
+                  ],
+                  stops: [0, 1],
+                  begin: AlignmentDirectional(0, -1),
+                  end: AlignmentDirectional(0, 1),
+                ),
+              ),
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                 child: SingleChildScrollView(
@@ -59,8 +69,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Expanded(
-                              child: Image.asset(
-                                'assets/images/logo-removebg-preview.png',
+                              child: Image.network(
+                                '',
                                 width: 300,
                                 height: 200,
                                 fit: BoxFit.contain,
@@ -271,7 +281,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   .bodyText2
                                   .override(
                                     fontFamily: 'Lexend Deca',
-                                    color: Colors.white,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryColor,
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
                                   ),
