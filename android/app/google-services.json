@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "861496021495",
+    "firebase_url": "https://mapwc-353700-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "mapwc-353700",
     "storage_bucket": "mapwc-353700.appspot.com"
   },
@@ -19,6 +20,14 @@
           "android_info": {
             "package_name": "com.flutterflow.mapwc",
             "certificate_hash": "31a6e767ccf850d5afe5da9331b43a8c7b1e7b19"
+          }
+        },
+        {
+          "client_id": "861496021495-ou0l5d47o7ut8a6c5cfabi7ko3123q4u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.flutterflow.mapwc",
+            "certificate_hash": "9124737b42c0af96ab3d5a5042d6ae740ca84cbd"
           }
         },
         {
