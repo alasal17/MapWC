@@ -40,8 +40,9 @@ class _PopupMapInfoWidgetState extends State<PopupMapInfoWidget> {
           final listViewGetRequestGooglePlacesAPIResponse = snapshot.data!;
           return Builder(
             builder: (context) {
-              final results = GetRequestGooglePlacesAPICall.results(
+              final results = getJsonField(
                 listViewGetRequestGooglePlacesAPIResponse.jsonBody,
+                r'''$.results[::]''',
               ).toList().take(5).toList();
               return ListView.builder(
                 padding: EdgeInsets.zero,

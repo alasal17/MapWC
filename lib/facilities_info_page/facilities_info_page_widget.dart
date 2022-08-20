@@ -6,7 +6,6 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import '../flutter_flow/random_data_util.dart' as random_data;
-import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -35,7 +34,6 @@ class FacilitiesInfoPageWidget extends StatefulWidget {
 
 class _FacilitiesInfoPageWidgetState extends State<FacilitiesInfoPageWidget>
     with TickerProviderStateMixin {
-  Completer<ApiCallResponse>? _apiRequestCompleter;
   double? ratingBarValue;
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final animationsMap = {
@@ -698,84 +696,6 @@ class _FacilitiesInfoPageWidgetState extends State<FacilitiesInfoPageWidget>
                               ],
                             ),
                           ),
-                          FutureBuilder<ApiCallResponse>(
-                            future: (_apiRequestCompleter ??=
-                                    Completer<ApiCallResponse>()
-                                      ..complete(
-                                          GetRequestGooglePlacesAPICall.call()))
-                                .future,
-                            builder: (context, snapshot) {
-                              // Customize what your widget looks like when it's loading.
-                              if (!snapshot.hasData) {
-                                return Center(
-                                  child: SizedBox(
-                                    width: 50,
-                                    height: 50,
-                                    child: SpinKitFoldingCube(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
-                                      size: 50,
-                                    ),
-                                  ),
-                                );
-                              }
-                              final listViewGetRequestGooglePlacesAPIResponse =
-                                  snapshot.data!;
-                              return Builder(
-                                builder: (context) {
-                                  final typesresualt =
-                                      GetRequestGooglePlacesAPICall.results(
-                                    listViewGetRequestGooglePlacesAPIResponse
-                                        .jsonBody,
-                                  ).toList();
-                                  return RefreshIndicator(
-                                    onRefresh: () async {
-                                      setState(
-                                          () => _apiRequestCompleter = null);
-                                      await waitForApiRequestCompleter();
-                                    },
-                                    child: ListView.builder(
-                                      padding: EdgeInsets.zero,
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.vertical,
-                                      itemCount: typesresualt.length,
-                                      itemBuilder:
-                                          (context, typesresualtIndex) {
-                                        final typesresualtItem =
-                                            typesresualt[typesresualtIndex];
-                                        return Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Image.network(
-                                                  'https://picsum.photos/seed/344/600',
-                                                  width: 100,
-                                                  height: 100,
-                                                  fit: BoxFit.cover,
-                                                ),
-                                                Text(
-                                                  getJsonField(
-                                                    listViewGetRequestGooglePlacesAPIResponse
-                                                        .jsonBody,
-                                                    r'''$.results[::].types[::]''',
-                                                  ).toString(),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyText1,
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                    ),
-                                  );
-                                },
-                              );
-                            },
-                          ),
                           Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
@@ -811,7 +731,6 @@ class _FacilitiesInfoPageWidgetState extends State<FacilitiesInfoPageWidget>
                                       barWidth: 1,
                                       isCurved: true,
                                       preventCurveOverShooting: true,
-                                      dotData: FlDotData(show: false),
                                       belowBarData: BarAreaData(
                                         show: true,
                                         color: Color(0x674B39EF),
@@ -1547,20 +1466,5 @@ class _FacilitiesInfoPageWidgetState extends State<FacilitiesInfoPageWidget>
         ),
       ),
     );
-  }
-
-  Future waitForApiRequestCompleter({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = _apiRequestCompleter?.isCompleted ?? false;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
   }
 }
