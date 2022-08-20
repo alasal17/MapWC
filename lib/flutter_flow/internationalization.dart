@@ -49,6 +49,29 @@ Locale createLocale(String language) => language.contains('_')
     : Locale(language);
 
 final kTranslationsMap = <Map<String, Map<String, String>>>[
+  // Login
+  {
+    'qs9tfxec': {
+      'en': 'Email addres',
+      'nb': '',
+    },
+    't2p1hqc5': {
+      'en': 'Password',
+      'nb': '',
+    },
+    'xtewv76f': {
+      'en': 'Use a Social Platform to Login',
+      'nb': '',
+    },
+    'p3eaf550': {
+      'en': 'Don\'t have an account?',
+      'nb': '',
+    },
+    'rko7lpri': {
+      'en': 'Register',
+      'nb': '',
+    },
+  },
   // Register
   {
     't9axep2d': {
@@ -81,29 +104,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'e1p49dwg': {
       'en': 'Get Started',
-      'nb': '',
-    },
-  },
-  // Login
-  {
-    'qs9tfxec': {
-      'en': 'Email addres',
-      'nb': '',
-    },
-    't2p1hqc5': {
-      'en': 'Password',
-      'nb': '',
-    },
-    'xtewv76f': {
-      'en': 'Use a Social Platform to Login',
-      'nb': '',
-    },
-    'p3eaf550': {
-      'en': 'Don\'t have an account?',
-      'nb': '',
-    },
-    'rko7lpri': {
-      'en': 'Register',
       'nb': '',
     },
   },
