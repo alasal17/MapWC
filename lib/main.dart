@@ -109,7 +109,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPage = 'HomePage';
+  String _currentPage = 'Home';
 
   @override
   void initState() {
@@ -120,8 +120,8 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'HomePage': HomePageWidget(),
-      'UserProfil': UserProfilWidget(),
+      'Home': HomeWidget(),
+      'User_Profil_Page': UserProfilPageWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPage);
     return Scaffold(
@@ -131,7 +131,7 @@ class _NavBarPageState extends State<NavBarPage> {
         onTap: (i) => setState(() => _currentPage = tabs.keys.toList()[i]),
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         selectedItemColor: FlutterFlowTheme.of(context).secondaryText,
-        unselectedItemColor: FlutterFlowTheme.of(context).tertiaryColor,
+        unselectedItemColor: FlutterFlowTheme.of(context).secondaryColor,
         showSelectedLabels: true,
         showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,

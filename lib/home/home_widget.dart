@@ -9,14 +9,14 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomePageWidget extends StatefulWidget {
-  const HomePageWidget({Key? key}) : super(key: key);
+class HomeWidget extends StatefulWidget {
+  const HomeWidget({Key? key}) : super(key: key);
 
   @override
-  _HomePageWidgetState createState() => _HomePageWidgetState();
+  _HomeWidgetState createState() => _HomeWidgetState();
 }
 
-class _HomePageWidgetState extends State<HomePageWidget> {
+class _HomeWidgetState extends State<HomeWidget> {
   LatLng? currentUserLocationValue;
   final scaffoldKey = GlobalKey<ScaffoldState>();
   LatLng? googleMapsCenter;

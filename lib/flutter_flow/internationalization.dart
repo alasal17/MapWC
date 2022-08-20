@@ -49,14 +49,38 @@ Locale createLocale(String language) => language.contains('_')
     : Locale(language);
 
 final kTranslationsMap = <Map<String, Map<String, String>>>[
-  // ProfilePage
+  // Register
   {
-    'yd0irb5g': {
-      'en': 'Kontoinnstillinger',
+    't9axep2d': {
+      'en': 'Sign In',
       'nb': '',
     },
-    '8r79w0yn': {
-      'en': 'Profile',
+    'y3loxqwz': {
+      'en': 'Sign Up',
+      'nb': '',
+    },
+    'f7tv9qup': {
+      'en': 'Get started by creating an account below.',
+      'nb': '',
+    },
+    '257a6rng': {
+      'en': 'Button',
+      'nb': '',
+    },
+    'a9t1c7vj': {
+      'en': 'E-mail',
+      'nb': '',
+    },
+    'fbe39hfx': {
+      'en': 'Enter password',
+      'nb': '',
+    },
+    'ibid3xzc': {
+      'en': 'Confirm password',
+      'nb': '',
+    },
+    'e1p49dwg': {
+      'en': 'Get Started',
       'nb': '',
     },
   },
@@ -83,14 +107,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nb': '',
     },
   },
-  // HomePage
+  // Home
   {
     'k7ek2jtn': {
       'en': 'Home',
       'nb': '',
     },
   },
-  // Info
+  // Facilities_Info_Page
   {
     'b3zj719v': {
       'en': 'Anbefalt',
@@ -181,147 +205,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nb': '',
     },
   },
-  // UserProfil
+  // User_Profil_Page
   {
     'k3e8ttgo': {
       'en': 'Profil',
-      'nb': '',
-    },
-  },
-  // Register
-  {
-    't9axep2d': {
-      'en': 'Sign In',
-      'nb': '',
-    },
-    'y3loxqwz': {
-      'en': 'Sign Up',
-      'nb': '',
-    },
-    'f7tv9qup': {
-      'en': 'Get started by creating an account below.',
-      'nb': '',
-    },
-    '257a6rng': {
-      'en': 'Button',
-      'nb': '',
-    },
-    'a9t1c7vj': {
-      'en': 'E-mail',
-      'nb': '',
-    },
-    'fbe39hfx': {
-      'en': 'Enter password',
-      'nb': '',
-    },
-    'ibid3xzc': {
-      'en': 'Confirm password',
-      'nb': '',
-    },
-    'e1p49dwg': {
-      'en': 'Get Started',
-      'nb': '',
-    },
-  },
-  // testApiCall
-  {
-    'vrmjy7gr': {
-      'en': '4 Folders',
-      'nb': '',
-    },
-    'm6o8raen': {
-      'en': '3 upcoming due dates',
-      'nb': '',
-    },
-    '5tkzx5jy': {
-      'en': '4 Folders',
-      'nb': '',
-    },
-    'jb7kdjo3': {
-      'en': '3 upcoming due dates',
-      'nb': '',
-    },
-    '6ws03dkv': {
-      'en': 'APITEST',
-      'nb': '',
-    },
-  },
-  // MapView
-  {
-    '09wbjm9n': {
-      'en': 'Map View',
-      'nb': '',
-    },
-  },
-  // TestInfo
-  {
-    'nijskua3': {
-      'en': 'Full Street Address',
-      'nb': '',
-    },
-    '9bftcb0k': {
-      'en': 'City, State',
-      'nb': '',
-    },
-    '49b4845i': {
-      'en': 'Description',
-      'nb': '',
-    },
-    '3tzrn2d1': {
-      'en': 'Lorem ipsum dolor sit amet, consectetur adipiscing...',
-      'nb': '',
-    },
-    '2qvkgoa7': {
-      'en':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      'nb': '',
-    },
-    'r3y8fn1l': {
-      'en': 'Specifications',
-      'nb': '',
-    },
-    '84xmac79': {
-      'en': '5',
-      'nb': '',
-    },
-    'lxmub7yk': {
-      'en': '# Rooms',
-      'nb': '',
-    },
-    'jdgoxd4h': {
-      'en': '3.5',
-      'nb': '',
-    },
-    'ddeas1dq': {
-      'en': '# bathrooms',
-      'nb': '',
-    },
-    'qs0p0cqi': {
-      'en': '4,302',
-      'nb': '',
-    },
-    '4s1azj04': {
-      'en': 'Square Feet',
-      'nb': '',
-    },
-    '50hg3vts': {
-      'en': 'Estimate over time',
-      'nb': '',
-    },
-    'zy198hij': {
-      'en': 'For Sale',
-      'nb': '',
-    },
-  },
-  // star
-  {
-    'y3xmq2eq': {
-      'en': 'Vacation Home',
-      'nb': '',
-    },
-    'oqdh7oc5': {
-      'en':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       'nb': '',
     },
   },

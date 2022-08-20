@@ -14,8 +14,8 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
-class InfoWidget extends StatefulWidget {
-  const InfoWidget({
+class FacilitiesInfoPageWidget extends StatefulWidget {
+  const FacilitiesInfoPageWidget({
     Key? key,
     this.name,
     this.address,
@@ -29,10 +29,12 @@ class InfoWidget extends StatefulWidget {
   final double? rating;
 
   @override
-  _InfoWidgetState createState() => _InfoWidgetState();
+  _FacilitiesInfoPageWidgetState createState() =>
+      _FacilitiesInfoPageWidgetState();
 }
 
-class _InfoWidgetState extends State<InfoWidget> with TickerProviderStateMixin {
+class _FacilitiesInfoPageWidgetState extends State<FacilitiesInfoPageWidget>
+    with TickerProviderStateMixin {
   Completer<ApiCallResponse>? _apiRequestCompleter;
   double? ratingBarValue;
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -804,7 +806,8 @@ class _InfoWidgetState extends State<InfoWidget> with TickerProviderStateMixin {
                                         (index) => random_data.randomInteger(
                                             0, 24)).map((e) => e).toList(),
                                     settings: LineChartBarData(
-                                      color: Color(0x00000000),
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryColor,
                                       barWidth: 1,
                                       isCurved: true,
                                       preventCurveOverShooting: true,
@@ -817,10 +820,28 @@ class _InfoWidgetState extends State<InfoWidget> with TickerProviderStateMixin {
                                   )
                                 ],
                                 chartStylingInfo: ChartStylingInfo(
+                                  enableTooltip: true,
+                                  tooltipBackgroundColor:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  backgroundColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
                                   showBorder: false,
                                 ),
-                                axisBounds: AxisBounds(),
-                                xAxisLabelInfo: AxisLabelInfo(),
+                                axisBounds: AxisBounds(
+                                  maxX: 24,
+                                  maxY: 100,
+                                ),
+                                xAxisLabelInfo: AxisLabelInfo(
+                                  title: FFLocalizations.of(context).getText(
+                                    'gz5x4tgm' /* Time */,
+                                  ),
+                                  titleTextStyle:
+                                      FlutterFlowTheme.of(context).bodyText1,
+                                  showLabels: true,
+                                  labelTextStyle:
+                                      FlutterFlowTheme.of(context).bodyText2,
+                                  labelInterval: 10,
+                                ),
                                 yAxisLabelInfo: AxisLabelInfo(),
                               ),
                             ),
