@@ -236,7 +236,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) =>
-                                        NavBarPage(initialPage: 'HomePage'),
+                                        NavBarPage(initialPage: 'Home'),
                                   ),
                                   (r) => false,
                                 );
@@ -306,7 +306,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) =>
-                                        NavBarPage(initialPage: 'HomePage'),
+                                        NavBarPage(initialPage: 'Home'),
                                   ),
                                   (r) => false,
                                 );
@@ -345,7 +345,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) =>
-                                        NavBarPage(initialPage: 'HomePage'),
+                                        NavBarPage(initialPage: 'Home'),
                                   ),
                                   (r) => false,
                                 );

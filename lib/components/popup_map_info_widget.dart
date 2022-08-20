@@ -1,7 +1,7 @@
 import '../backend/api_requests/api_calls.dart';
+import '../facilities_info_page/facilities_info_page_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import '../info/info_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -88,7 +88,7 @@ class _PopupMapInfoWidgetState extends State<PopupMapInfoWidget> {
                                 type: PageTransitionType.bottomToTop,
                                 duration: Duration(milliseconds: 300),
                                 reverseDuration: Duration(milliseconds: 300),
-                                child: InfoWidget(
+                                child: FacilitiesInfoPageWidget(
                                   name: getJsonField(
                                     resultsItem,
                                     r'''$.name''',

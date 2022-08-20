@@ -68,7 +68,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
           await Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(
-              builder: (context) => NavBarPage(initialPage: 'HomePage'),
+              builder: (context) => NavBarPage(initialPage: 'Home'),
             ),
             (r) => false,
           );
@@ -422,8 +422,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                       await Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>
-                              NavBarPage(initialPage: 'HomePage'),
+                          builder: (context) => NavBarPage(initialPage: 'Home'),
                         ),
                         (r) => false,
                       );
@@ -484,7 +483,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    NavBarPage(initialPage: 'HomePage'),
+                                    NavBarPage(initialPage: 'Home'),
                               ),
                               (r) => false,
                             );
@@ -510,7 +509,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    NavBarPage(initialPage: 'HomePage'),
+                                    NavBarPage(initialPage: 'Home'),
                               ),
                               (r) => false,
                             );
