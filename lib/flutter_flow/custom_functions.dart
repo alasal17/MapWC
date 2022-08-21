@@ -1,14 +1,20 @@
+import 'dart:ffi';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:map_w_c/flutter_flow/flutter_flow_util.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'lat_lng.dart';
 import 'place.dart';
 import '../backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../auth/auth_util.dart';
+
+import '../backend/api_requests/api_manager.dart';
+
+export '../backend/api_requests/api_manager.dart' show ApiCallResponse;
 
 LatLng getUserLocation(LatLng? userLocation) {
   if (userLocation == null ||
@@ -18,7 +24,19 @@ LatLng getUserLocation(LatLng? userLocation) {
   return userLocation;
 }
 
-dynamic getGooglePlacesData() {
+dynamic getGooglePlacesData(LatLng userLocation) {
   // Add your function code here!
-  return {"data": "test"};
+  var lat = userLocation.latitude.toString();
+  var long = userLocation.longitude.toString();
+
+  var location = "${lat}%2C${long}";
+  return ApiManager.instance.makeApiCall(
+    callName: 'Get Request Google Places API ',
+    apiUrl:
+        'https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=cruise&location=${location}&radius=1500&type=restaurant&key=AIzaSyDsZ10iarpFbMf6S6UAdOUiRXwHVYTbx_Q',
+    callType: ApiCallType.GET,
+    headers: {},
+    params: {},
+    returnBody: true,
+  );
 }

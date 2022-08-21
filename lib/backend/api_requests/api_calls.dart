@@ -1,7 +1,10 @@
+import 'package:flutter/rendering.dart';
+
 import '../../flutter_flow/flutter_flow_util.dart';
 
 import 'api_manager.dart';
-
+import '../../flutter_flow/custom_functions.dart';
+export '../../flutter_flow/custom_functions.dart' show getUserLocation;
 export 'api_manager.dart' show ApiCallResponse;
 
 class GetRequestGooglePlacesAPICall {
@@ -24,18 +27,19 @@ class GetRequestGooglePlacesAPICall {
 }
 
 class GooglePlacessCall {
-  static Future<ApiCallResponse> call({
-    String? location = '',
-  }) {
+  static Future<ApiCallResponse> call(LatLng userLocation) {
+    var lat = userLocation.latitude.toString();
+    var long = userLocation.longitude.toString();
+
+    var location = "${lat}%2C${long}";
+    print(location);
     return ApiManager.instance.makeApiCall(
       callName: 'GooglePlacess',
       apiUrl:
-          'https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=cruise&radius=1500&type=restaurant&key=AIzaSyDsZ10iarpFbMf6S6UAdOUiRXwHVYTbx_Q&',
+          'https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=cruise&location=${location}&radius=1500&type=restaurant&key=AIzaSyDsZ10iarpFbMf6S6UAdOUiRXwHVYTbx_Q',
       callType: ApiCallType.GET,
       headers: {},
-      params: {
-        'location': location,
-      },
+      params: {},
       returnBody: true,
     );
   }

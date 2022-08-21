@@ -44,9 +44,6 @@ class _ApidatatestWidgetState extends State<ApidatatestWidget> {
                   ),
                   Expanded(
                     child: FutureBuilder<ApiCallResponse>(
-                      future: GooglePlacessCall.call(
-                        location: FFAppState().userLocation?.toString(),
-                      ),
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.
                         if (!snapshot.hasData) {
