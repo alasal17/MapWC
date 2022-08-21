@@ -3,8 +3,7 @@ import 'package:flutter/rendering.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
 
 import 'api_manager.dart';
-import '../../flutter_flow/custom_functions.dart';
-export '../../flutter_flow/custom_functions.dart' show getUserLocation;
+
 export 'api_manager.dart' show ApiCallResponse;
 
 class GetRequestGooglePlacesAPICall {
