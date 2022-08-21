@@ -11,9 +11,7 @@ class GetRequestGooglePlacesAPICall {
       apiUrl:
           'https://maps.googleapis.com/maps/api/place/textsearch/json?query=bensinstasjon%20norge&key=AIzaSyDsZ10iarpFbMf6S6UAdOUiRXwHVYTbx_Q',
       callType: ApiCallType.GET,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-      },
+      headers: {},
       params: {},
       returnBody: true,
     );
