@@ -22,3 +22,26 @@ class GetRequestGooglePlacesAPICall {
         r'''$.results''',
       );
 }
+
+class GooglePlacessCall {
+  static Future<ApiCallResponse> call({
+    String? location = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'GooglePlacess',
+      apiUrl:
+          'https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=cruise&radius=1500&type=restaurant&key=AIzaSyDsZ10iarpFbMf6S6UAdOUiRXwHVYTbx_Q&',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {
+        'location': location,
+      },
+      returnBody: true,
+    );
+  }
+
+  static dynamic jSONPath1(dynamic response) => getJsonField(
+        response,
+        r'''$.results[::].geometry.location''',
+      );
+}
