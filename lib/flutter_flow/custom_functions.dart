@@ -9,8 +9,6 @@ import 'place.dart';
 import '../backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../auth/auth_util.dart';
-import '../backend/api_requests/api_manager.dart';
-export '../backend/api_requests/api_manager.dart' show ApiCallResponse;
 
 LatLng getUserLocation(LatLng? userLocation) {
   if (userLocation == null ||
@@ -20,16 +18,7 @@ LatLng getUserLocation(LatLng? userLocation) {
   return userLocation;
 }
 
-dynamic getGooglePlacesData(LatLng? userLocation) {
+dynamic getGooglePlacesData() {
   // Add your function code here!
-
-  return ApiManager.instance.makeApiCall(
-    callName: 'Get Request Google Places API ',
-    apiUrl:
-        'https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=cruise&location=${userLocation}&radius=1500&type=restaurant&key=AIzaSyDsZ10iarpFbMf6S6UAdOUiRXwHVYTbx_Q',
-    callType: ApiCallType.GET,
-    headers: {},
-    params: {},
-    returnBody: true,
-  );
+  return {"data": "test"};
 }

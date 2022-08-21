@@ -6,3 +6,4 @@ export 'facilities_info_page/facilities_info_page_widget.dart'
     show FacilitiesInfoPageWidget;
 export 'user_profil_page/user_profil_page_widget.dart'
     show UserProfilPageWidget;
+export 'apidatatest/apidatatest_widget.dart' show ApidatatestWidget;

@@ -212,6 +212,69 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'nb': '',
     },
   },
+  // APIDATATEST
+  {
+    '1iu3ldd5': {
+      'en': '123 Address St, City, ST',
+      'nb': '',
+    },
+    'xb3higd9': {
+      'en': '1.7mi',
+      'nb': '',
+    },
+    '9byfjgb2': {
+      'en': 'Store/Location Name',
+      'nb': '',
+    },
+    'tno18hnn': {
+      'en': '123 Address St, City, ST',
+      'nb': '',
+    },
+    'd0cpej3v': {
+      'en': '1.7mi',
+      'nb': '',
+    },
+    'sltckcro': {
+      'en': 'Store/Location Name',
+      'nb': '',
+    },
+    '56ybyshm': {
+      'en': '123 Address St, City, ST',
+      'nb': '',
+    },
+    'j8dkdx4y': {
+      'en': '1.7mi',
+      'nb': '',
+    },
+    'n659dvz4': {
+      'en': 'Store/Location Name',
+      'nb': '',
+    },
+    '2kzqgf1r': {
+      'en': '123 Address St, City, ST',
+      'nb': '',
+    },
+    'hg9cjc2h': {
+      'en': '1.7mi',
+      'nb': '',
+    },
+    '3g5niz8p': {
+      'en': 'Store/Location Name',
+      'nb': '',
+    },
+    'jw1i28ix': {
+      'en': '123 Address St, City, ST',
+      'nb': '',
+    },
+    '8xqhkkbu': {
+      'en': '1.7mi',
+      'nb': '',
+    },
+    '5zoz60w5': {
+      'en': 'Test',
+      'nb': '',
+    },
+  },
   // popupMapInfo
   {
     'wd1fdd3m': {
