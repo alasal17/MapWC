@@ -1,4 +1,5 @@
 import '../backend/api_requests/api_calls.dart';
+import '../facilities_info_page/facilities_info_page_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -16,13 +17,6 @@ class PopupMapInfoWidget extends StatefulWidget {
 }
 
 class _PopupMapInfoWidgetState extends State<PopupMapInfoWidget> {
-  @override
-  void initState() {
-    super.initState();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
-  }
-
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -73,41 +67,31 @@ class _PopupMapInfoWidgetState extends State<PopupMapInfoWidget> {
                       ),
                       child: InkWell(
                         onTap: () async {
-                          context.pushNamed(
-                            'Facilities_Info_Page',
-                            queryParams: {
-                              'name': serializeParam(
-                                  getJsonField(
-                                    resultsItem,
-                                    r'''$.name''',
-                                  ).toString(),
-                                  ParamType.String),
-                              'address': serializeParam(
-                                  getJsonField(
-                                    resultsItem,
-                                    r'''$.formatted_address''',
-                                  ).toString(),
-                                  ParamType.String),
-                              'open': serializeParam(
-                                  getJsonField(
-                                    resultsItem,
-                                    r'''$.opening_hours''',
-                                  ),
-                                  ParamType.bool),
-                              'rating': serializeParam(
-                                  getJsonField(
-                                    resultsItem,
-                                    r'''$.rating''',
-                                  ),
-                                  ParamType.double),
-                            }.withoutNulls,
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.bottomToTop,
-                                duration: Duration(milliseconds: 300),
+                          await Navigator.push(
+                            context,
+                            PageTransition(
+                              type: PageTransitionType.bottomToTop,
+                              duration: Duration(milliseconds: 300),
+                              reverseDuration: Duration(milliseconds: 300),
+                              child: FacilitiesInfoPageWidget(
+                                name: getJsonField(
+                                  resultsItem,
+                                  r'''$.name''',
+                                ).toString(),
+                                address: getJsonField(
+                                  resultsItem,
+                                  r'''$.formatted_address''',
+                                ).toString(),
+                                open: getJsonField(
+                                  resultsItem,
+                                  r'''$.opening_hours''',
+                                ),
+                                rating: getJsonField(
+                                  resultsItem,
+                                  r'''$.rating''',
+                                ),
                               ),
-                            },
+                            ),
                           );
                         },
                         child: Row(

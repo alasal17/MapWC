@@ -1,11 +1,11 @@
 import '../auth/auth_util.dart';
-import '../flutter_flow/flutter_flow_icon_button.dart';
+import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class RegisterWidget extends StatefulWidget {
@@ -19,6 +19,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
   TextEditingController? confirmPasswordController;
   late bool confirmPasswordVisibility;
   TextEditingController? eMailController;
+  TextEditingController? nameController;
   TextEditingController? passwordController;
   late bool passwordVisibility;
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -28,187 +29,125 @@ class _RegisterWidgetState extends State<RegisterWidget> {
     super.initState();
     confirmPasswordController = TextEditingController();
     confirmPasswordVisibility = false;
-    eMailController = TextEditingController(
-        text: FFLocalizations.of(context).getText(
-      'a9t1c7vj' /* E-mail */,
-    ));
+    eMailController = TextEditingController();
+    nameController = TextEditingController();
     passwordController = TextEditingController();
     passwordVisibility = false;
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   Widget build(BuildContext context) {
-    return Title(
-        title: 'Register',
-        color: FlutterFlowTheme.of(context).primaryColor,
-        child: Scaffold(
-          key: scaffoldKey,
-          backgroundColor: Color(0xFFF1F4F8),
-          body: InkWell(
-            onTap: () async {
-              GoRouter.of(context).prepareAuthEvent();
-              if (passwordController?.text != confirmPasswordController?.text) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(
-                      'Passwords don\'t match!',
-                    ),
-                  ),
-                );
-                return;
-              }
+    return Scaffold(
+      key: scaffoldKey,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      body: InkWell(
+        onTap: () async {
+          if (passwordController?.text != confirmPasswordController?.text) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  'Passwords don\'t match!',
+                ),
+              ),
+            );
+            return;
+          }
 
-              final user = await createAccountWithEmail(
-                context,
-                eMailController!.text,
-                passwordController!.text,
-              );
-              if (user == null) {
-                return;
-              }
+          final user = await createAccountWithEmail(
+            context,
+            nameController!.text,
+            passwordController!.text,
+          );
+          if (user == null) {
+            return;
+          }
 
-              context.goNamedAuth('Home', mounted);
-            },
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
-                  child: Column(
+          await Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(
+              builder: (context) => NavBarPage(initialPage: 'Home'),
+            ),
+            (r) => false,
+          );
+        },
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
                     mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Image.asset(
-                            'assets/images/logoTranslation@3x.png',
-                            width: 50,
-                            height: 50,
-                            fit: BoxFit.fitWidth,
+                      Image.asset(
+                        'assets/images/logoTranslation@3x.png',
+                        width: 150,
+                        height: 150,
+                        fit: BoxFit.none,
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 24),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Text(
+                          FFLocalizations.of(context).getText(
+                            'f7tv9qup' /* Get started by creating an acc... */,
                           ),
-                        ],
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 32, 0, 0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            InkWell(
-                              onTap: () async {
-                                context.pushNamed(
-                                  'Login',
-                                  extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType: PageTransitionType.fade,
-                                      duration: Duration(milliseconds: 200),
-                                    ),
-                                  },
-                                );
-                              },
-                              child: Container(
-                                width: 140,
-                                height: 50,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFFF1F4F8),
-                                ),
-                                alignment: AlignmentDirectional(-1, 0),
-                                child: InkWell(
-                                  onTap: () async {
-                                    context.pushNamed('Login');
-                                  },
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      't9axep2d' /* Sign In */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .title2
-                                        .override(
-                                          fontFamily: 'Lexend Deca',
-                                          color: Color(0xFF95A1AC),
-                                          fontSize: 28,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: 140,
-                              height: 50,
-                              decoration: BoxDecoration(
-                                color: Color(0xFFF1F4F8),
-                              ),
-                              alignment: AlignmentDirectional(-1, 0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  'y3loxqwz' /* Sign Up */,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .title2
-                                    .override(
-                                      fontFamily: 'Lexend Deca',
-                                      color: Color(0xFF090F13),
-                                      fontSize: 28,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 24),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              FFLocalizations.of(context).getText(
-                                'f7tv9qup' /* Get started by creating an acc... */,
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText2
-                                  .override(
+                          style:
+                              FlutterFlowTheme.of(context).bodyText2.override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF57636C),
-                                    fontSize: 14,
+                                    fontSize: 17,
                                     fontWeight: FontWeight.normal,
                                   ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 12),
+                    child: StreamBuilder<List<UsersRecord>>(
+                      stream: queryUsersRecord(
+                        singleRecord: true,
+                      ),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50,
+                              height: 50,
+                              child: SpinKitFoldingCube(
+                                color:
+                                    FlutterFlowTheme.of(context).primaryColor,
+                                size: 50,
+                              ),
                             ),
-                          ],
-                        ),
-                      ),
-                      FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
-                        },
-                        text: FFLocalizations.of(context).getText(
-                          '257a6rng' /* Button */,
-                        ),
-                        options: FFButtonOptions(
-                          width: 130,
-                          height: 40,
-                          color: FlutterFlowTheme.of(context).primaryColor,
-                          textStyle:
-                              FlutterFlowTheme.of(context).subtitle2.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.white,
-                                  ),
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1,
-                          ),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        showLoadingIndicator: false,
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 12),
-                        child: TextFormField(
-                          controller: eMailController,
+                          );
+                        }
+                        List<UsersRecord> nameUsersRecordList = snapshot.data!;
+                        // Return an empty Container when the document does not exist.
+                        if (snapshot.data!.isEmpty) {
+                          return Container();
+                        }
+                        final nameUsersRecord = nameUsersRecordList.isNotEmpty
+                            ? nameUsersRecordList.first
+                            : null;
+                        return TextFormField(
+                          controller: nameController,
                           obscureText: false,
                           decoration: InputDecoration(
+                            labelText: FFLocalizations.of(context).getText(
+                              'k0vlgd1h' /* Name */,
+                            ),
                             labelStyle:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Lexend Deca',
@@ -249,11 +188,122 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                     fontSize: 14,
                                     fontWeight: FontWeight.normal,
                                   ),
-                        ),
+                        );
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 12),
+                    child: StreamBuilder<List<UsersRecord>>(
+                      stream: queryUsersRecord(
+                        singleRecord: true,
                       ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 12),
-                        child: TextFormField(
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50,
+                              height: 50,
+                              child: SpinKitFoldingCube(
+                                color:
+                                    FlutterFlowTheme.of(context).primaryColor,
+                                size: 50,
+                              ),
+                            ),
+                          );
+                        }
+                        List<UsersRecord> eMailUsersRecordList = snapshot.data!;
+                        // Return an empty Container when the document does not exist.
+                        if (snapshot.data!.isEmpty) {
+                          return Container();
+                        }
+                        final eMailUsersRecord = eMailUsersRecordList.isNotEmpty
+                            ? eMailUsersRecordList.first
+                            : null;
+                        return TextFormField(
+                          controller: eMailController,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            labelText: FFLocalizations.of(context).getText(
+                              '0daf9ib7' /* E-mail */,
+                            ),
+                            labelStyle:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: Color(0xFF57636C),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                            hintStyle:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: Color(0xFF57636C),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0xFFDBE2E7),
+                                width: 2,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0xFFDBE2E7),
+                                width: 2,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            filled: true,
+                            fillColor: Colors.white,
+                            contentPadding:
+                                EdgeInsetsDirectional.fromSTEB(24, 24, 20, 24),
+                          ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Lexend Deca',
+                                    color: Color(0xFF1D2429),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                        );
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 12),
+                    child: StreamBuilder<List<UsersRecord>>(
+                      stream: queryUsersRecord(
+                        singleRecord: true,
+                      ),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50,
+                              height: 50,
+                              child: SpinKitFoldingCube(
+                                color:
+                                    FlutterFlowTheme.of(context).primaryColor,
+                                size: 50,
+                              ),
+                            ),
+                          );
+                        }
+                        List<UsersRecord> passwordUsersRecordList =
+                            snapshot.data!;
+                        // Return an empty Container when the document does not exist.
+                        if (snapshot.data!.isEmpty) {
+                          return Container();
+                        }
+                        final passwordUsersRecord =
+                            passwordUsersRecordList.isNotEmpty
+                                ? passwordUsersRecordList.first
+                                : null;
+                        return TextFormField(
                           controller: passwordController,
                           obscureText: !passwordVisibility,
                           decoration: InputDecoration(
@@ -313,14 +363,45 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                     fontSize: 14,
                                     fontWeight: FontWeight.normal,
                                   ),
-                        ),
-                      ),
-                      Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 2),
-                            child: TextFormField(
+                        );
+                      },
+                    ),
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 2),
+                        child: StreamBuilder<List<UsersRecord>>(
+                          stream: queryUsersRecord(
+                            singleRecord: true,
+                          ),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50,
+                                  height: 50,
+                                  child: SpinKitFoldingCube(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryColor,
+                                    size: 50,
+                                  ),
+                                ),
+                              );
+                            }
+                            List<UsersRecord> confirmPasswordUsersRecordList =
+                                snapshot.data!;
+                            // Return an empty Container when the document does not exist.
+                            if (snapshot.data!.isEmpty) {
+                              return Container();
+                            }
+                            final confirmPasswordUsersRecord =
+                                confirmPasswordUsersRecordList.isNotEmpty
+                                    ? confirmPasswordUsersRecordList.first
+                                    : null;
+                            return TextFormField(
                               controller: confirmPasswordController,
                               obscureText: !confirmPasswordVisibility,
                               decoration: InputDecoration(
@@ -384,130 +465,79 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                     fontSize: 14,
                                     fontWeight: FontWeight.normal,
                                   ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      FFButtonWidget(
-                        onPressed: () async {
-                          GoRouter.of(context).prepareAuthEvent();
-                          if (passwordController?.text !=
-                              confirmPasswordController?.text) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  'Passwords don\'t match!',
-                                ),
-                              ),
                             );
-                            return;
-                          }
-
-                          final user = await createAccountWithEmail(
-                            context,
-                            eMailController!.text,
-                            passwordController!.text,
-                          );
-                          if (user == null) {
-                            return;
-                          }
-
-                          context.goNamedAuth('Home', mounted);
-                        },
-                        text: FFLocalizations.of(context).getText(
-                          'e1p49dwg' /* Get Started */,
-                        ),
-                        options: FFButtonOptions(
-                          width: 170,
-                          height: 50,
-                          color: Color(0xFF090F13),
-                          textStyle:
-                              FlutterFlowTheme.of(context).subtitle2.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                          elevation: 3,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1,
-                          ),
-                          borderRadius: BorderRadius.circular(40),
+                          },
                         ),
                       ),
                     ],
                   ),
-                ),
-                Expanded(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            FlutterFlowIconButton(
-                              borderColor: Colors.transparent,
-                              borderRadius: 30,
-                              borderWidth: 1,
-                              buttonSize: 50,
-                              fillColor: Color(0xFFDBE2E7),
-                              icon: FaIcon(
-                                FontAwesomeIcons.google,
-                                color: Color(0xFF57636C),
-                                size: 20,
-                              ),
-                              onPressed: () async {
-                                GoRouter.of(context).prepareAuthEvent();
-                                final user = await signInWithGoogle(context);
-                                if (user == null) {
-                                  return;
-                                }
-                                context.goNamedAuth('Home', mounted);
-                              },
+                ],
+              ),
+            ),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                  child: FFButtonWidget(
+                    onPressed: () async {
+                      if (passwordController?.text !=
+                          confirmPasswordController?.text) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              'Passwords don\'t match!',
                             ),
-                            FlutterFlowIconButton(
-                              borderColor: Colors.transparent,
-                              borderRadius: 30,
-                              borderWidth: 1,
-                              buttonSize: 50,
-                              fillColor: Color(0xFFDBE2E7),
-                              icon: FaIcon(
-                                FontAwesomeIcons.apple,
-                                color: Color(0xFF57636C),
-                                size: 20,
-                              ),
-                              onPressed: () async {
-                                GoRouter.of(context).prepareAuthEvent();
-                                final user = await signInWithApple(context);
-                                if (user == null) {
-                                  return;
-                                }
-                                context.goNamedAuth('Home', mounted);
-                              },
-                            ),
-                          ],
+                          ),
+                        );
+                        return;
+                      }
+
+                      final user = await createAccountWithEmail(
+                        context,
+                        nameController!.text,
+                        passwordController!.text,
+                      );
+                      if (user == null) {
+                        return;
+                      }
+
+                      await Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => NavBarPage(initialPage: 'Home'),
                         ),
+                        (r) => false,
+                      );
+                    },
+                    text: FFLocalizations.of(context).getText(
+                      'e1p49dwg' /* Create account */,
+                    ),
+                    options: FFButtonOptions(
+                      width: 170,
+                      height: 50,
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                      textStyle: FlutterFlowTheme.of(context)
+                          .bodyText1
+                          .override(
+                            fontFamily: 'Poppins',
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                          ),
+                      elevation: 3,
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1,
                       ),
-                    ],
+                      borderRadius: BorderRadius.circular(40),
+                    ),
                   ),
                 ),
               ],
             ),
-          ),
-        ));
+          ],
+        ),
+      ),
+    );
   }
 }

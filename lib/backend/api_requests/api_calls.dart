@@ -5,14 +5,18 @@ import 'api_manager.dart';
 export 'api_manager.dart' show ApiCallResponse;
 
 class GetRequestGooglePlacesAPICall {
-  static Future<ApiCallResponse> call() {
+  static Future<ApiCallResponse> call({
+    String? location = '59.9328344%2C10.8799134',
+  }) {
     return ApiManager.instance.makeApiCall(
       callName: 'Get Request Google Places API ',
       apiUrl:
-          'https://maps.googleapis.com/maps/api/place/textsearch/json?query=bensinstasjon%20norge&key=AIzaSyDsZ10iarpFbMf6S6UAdOUiRXwHVYTbx_Q',
+          'https://maps.googleapis.com/maps/api/place/textsearch/json?query=bensinstasjon%20norge&key=AIzaSyDsZ10iarpFbMf6S6UAdOUiRXwHVYTbx_Q&',
       callType: ApiCallType.GET,
       headers: {},
-      params: {},
+      params: {
+        'location': location,
+      },
       returnBody: true,
     );
   }

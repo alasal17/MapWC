@@ -49,6 +49,33 @@ Locale createLocale(String language) => language.contains('_')
     : Locale(language);
 
 final kTranslationsMap = <Map<String, Map<String, String>>>[
+  // Register
+  {
+    'f7tv9qup': {
+      'en': 'Get started by creating an account below.',
+      'nb': '',
+    },
+    'k0vlgd1h': {
+      'en': 'Name',
+      'nb': '',
+    },
+    '0daf9ib7': {
+      'en': 'E-mail',
+      'nb': '',
+    },
+    'fbe39hfx': {
+      'en': 'Enter password',
+      'nb': '',
+    },
+    'ibid3xzc': {
+      'en': 'Confirm password',
+      'nb': '',
+    },
+    'e1p49dwg': {
+      'en': 'Create account',
+      'nb': '',
+    },
+  },
   // Login
   {
     'qs9tfxec': {
@@ -69,41 +96,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'rko7lpri': {
       'en': 'Register',
-      'nb': '',
-    },
-  },
-  // Register
-  {
-    't9axep2d': {
-      'en': 'Sign In',
-      'nb': '',
-    },
-    'y3loxqwz': {
-      'en': 'Sign Up',
-      'nb': '',
-    },
-    'f7tv9qup': {
-      'en': 'Get started by creating an account below.',
-      'nb': '',
-    },
-    '257a6rng': {
-      'en': 'Button',
-      'nb': '',
-    },
-    'a9t1c7vj': {
-      'en': 'E-mail',
-      'nb': '',
-    },
-    'fbe39hfx': {
-      'en': 'Enter password',
-      'nb': '',
-    },
-    'ibid3xzc': {
-      'en': 'Confirm password',
-      'nb': '',
-    },
-    'e1p49dwg': {
-      'en': 'Get Started',
       'nb': '',
     },
   },
